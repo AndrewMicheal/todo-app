@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{todo ? 'edit todo' : 'new todo'}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-sm = "12" size-md="6">
+
+     <div class="form">
+       <form [formGroup]="form">
+         <ion-item>
+           <ion-label>Title</ion-label>
+           <ion-input formControlName = "title" type = "text"></ion-input>
+         </ion-item>
+         <ion-item>
+           <ion-label>Description</ion-label>
+           <ion-textarea rows="1" autoGrow formControlName = "desc"></ion-textarea>
+         </ion-item>
+       </form>
+       <ion-button [disabled]="!form.valid" (click) = "onSubmit()" class="ion-margin-top" expand="block" shape="round"> Save </ion-button>
+     </div>
+     </ion-col>
+     </ion-row>
+</ion-content>
